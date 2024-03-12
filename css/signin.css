@@ -1,0 +1,58 @@
+.signin-page {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(150.36deg, #AD00FF 18.13%, #6167FD 84.81%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    width: 600px;
+    height: 600px;
+    padding: 20px;
+    background: rgba(255, 0, 229, 0.35);
+    border: 2px solid #000000;
+    border-radius: 40px;
+    text-align: center;
+}
+
+.logo {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.input-label {
+    margin-right: 350px;
+    display: block;
+    font-size: 20px;
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+#email-label-id {
+    margin-right: 375px;
+}
+
+.input-field {
+    width: 70%;
+    height: 25px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1.5px solid #000000;
+    border-radius: 30px;
+    background-color: rgba(255, 0, 229, 0.35);
+}
+
+.sign-up {
+    margin-left: 330px;
+    width: 18%;
+    padding: 10px;
+    border: 1.5px solid #000000;
+    border-radius: 30px;
+    background: rgba(252, 84, 255, 0.87);
+    color: #000000;
+    cursor: pointer;
+}
