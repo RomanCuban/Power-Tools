@@ -141,3 +141,73 @@ body {
 .tool_wrapper:nth-last-child(-n + 3) {
   margin-bottom: 70px; /* Добавляем дополнительный отступ снизу для последних трех блоков */
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background-color: #2f2f2f;
+  margin: auto; /* Для горизонтального центрирования */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Для вертикального центрирования */
+  padding: 20px;
+  border: 1px solid #888;
+  height: 500px;
+  width: 1150px;
+  border-radius: 30px;
+  overflow: hidden; /* Предотвращает прокрутку */
+}
+
+.square {
+  width: 200px;
+  height: 200px;
+  border: 2px solid #a8deef;
+  background-size: contain; /* Растягиваем изображение, чтобы оно занимало всю площадь */
+  background-repeat: no-repeat; /* Предотвращаем повторение изображения */
+  background-position: center; /* Выравниваем изображение по центру */
+  border-radius: 20px;
+  margin-left: 35px;
+  margin-top: 15px;
+}
+
+.square-second {
+  width: 200px;
+  height: 200px;
+  border: 2px dashed #a8deef; /* Пустой квадратик будет иметь пунктирную рамку */
+  border-radius: 20px;
+  margin-left: 35px;
+  margin-top: 15px;
+}
+
+.tool-title {
+  margin-left: 80px;
+  font-size: 18px;
+  margin-top: 10px;
+  color: #a8deef;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
