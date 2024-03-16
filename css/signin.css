@@ -78,3 +78,7 @@
   background-color: #ad00ff;
   outline: none;
 }
+
+.login-link {
+  margin-top: 20px; /* Adjust this value as needed */
+}
