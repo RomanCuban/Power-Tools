@@ -169,6 +169,10 @@ body {
   overflow: auto; /* Предотвращает прокрутку */
 }
 
+.tool-info {
+  display: inline-block;
+}
+
 .square {
   width: 200px;
   height: 200px;
@@ -301,6 +305,29 @@ body {
   background-color: #2f2f2f; /* Change background color when clicked */
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add box-shadow when clicked */
   transition: background-color 0.2s, box-shadow 0.2s; /* Add transition for clicked state */
+}
+
+.info-square {
+  width: 700px;
+  height: 685px;
+  border: 2px solid #a8deef;
+  margin-left: 100px;
+  margin-top: 15px;
+  border-radius: 20px;
+  overflow: auto;
+}
+
+.info-square video {
+  margin-left: 30px;
+  margin-top: 15px;
+  border: 2px solid #ff00e5;
+  border-radius: 20px;
+}
+
+.tool-info,
+.info-square {
+  display: inline-block; /* Оба элемента теперь будут отображаться в одной строке */
+  vertical-align: top; /* Выравниваем их по верхнему краю */
 }
 
 .close {
