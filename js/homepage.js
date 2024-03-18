@@ -27,3 +27,38 @@ window.addEventListener("click", function (event) {
     modal.style.display = "none";
   }
 });
+
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+const dotsContainer = document.querySelector(".slider-dots");
+
+function showSlide(n) {
+  slides[currentSlide].style.display = "none";
+  currentSlide = (n + slides.length) % slides.length;
+  slides[currentSlide].style.display = "block";
+  updateDots();
+}
+
+function nextSlide() {
+  showSlide(currentSlide + 1);
+}
+
+function prevSlide() {
+  showSlide(currentSlide - 1);
+}
+
+function updateDots() {
+  const dots = document.querySelectorAll(".dot");
+  dots.forEach((dot) => dot.classList.remove("active"));
+  dots[currentSlide].classList.add("active");
+}
+
+// Создаем круглые индикаторы для слайдов
+slides.forEach((slide, index) => {
+  const dot = document.createElement("span");
+  dot.classList.add("dot");
+  dot.addEventListener("click", () => showSlide(index));
+  dotsContainer.appendChild(dot);
+});
+
+showSlide(currentSlide);

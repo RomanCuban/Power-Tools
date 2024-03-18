@@ -324,6 +324,81 @@ body {
   border-radius: 20px;
 }
 
+.info-square p {
+  margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 30px;
+  color: #aaa;
+}
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  margin-left: 30px;
+  margin-right: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.slider {
+  display: flex;
+}
+
+.slider img {
+  width: 250px;
+  border-radius: 20px;
+}
+
+.slide {
+  flex: 0 0 100%;
+  display: none;
+}
+
+.slide:first-child {
+  display: block;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.slider-dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dot {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #fff;
+}
+
 .tool-info,
 .info-square {
   display: inline-block; /* Оба элемента теперь будут отображаться в одной строке */
