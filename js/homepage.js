@@ -15,6 +15,12 @@ var specTitles6 = document.querySelectorAll(".with-image-6"); // Выбирае�
 toolWrappers.forEach(function (toolWrapper) {
   toolWrapper.addEventListener("click", function () {
     var imageUrl = toolWrapper.getAttribute("data-image");
+    var firstImage = toolWrapper.getAttribute("data-first-image");
+    var secondImage = toolWrapper.getAttribute("data-second-image");
+    var thirdImage = toolWrapper.getAttribute("data-third-image");
+    var fourthImage = toolWrapper.getAttribute("data-fourth-image");
+    var fifthImage = toolWrapper.getAttribute("data-fifth-image");
+    var sixthImage = toolWrapper.getAttribute("data-sixth-image");
     var toolTitle = toolWrapper.querySelector(".text-below").textContent; // Получаем название инструмента
     var specTitle = toolWrapper.getAttribute("data-spec-title"); // Получаем название спецификации
     var specTitle2 = toolWrapper.getAttribute("data-spec-title-2"); // Получаем название спецификации
@@ -32,6 +38,15 @@ toolWrappers.forEach(function (toolWrapper) {
       specTitle5,
       specTitle6
     ); // Вызываем функцию updateSpecs с передачей названия спецификации
+
+    updateImageSpecs(
+      firstImage,
+      secondImage,
+      thirdImage,
+      fourthImage,
+      fifthImage,
+      sixthImage
+    );
     modal.style.display = "block";
   });
 });
@@ -62,6 +77,34 @@ function updateSpecs(
   });
   specTitles6.forEach(function (title) {
     title.textContent = specTitle6; // Устанавливаем переданное название спецификации
+  });
+}
+
+function updateImageSpecs(
+  firstImage,
+  secondImage,
+  thirdImage,
+  fourthImage,
+  fifthImage,
+  sixthImage
+) {
+  specTitles.forEach(function (title) {
+    title.style.backgroundImage = "url('" + firstImage + "')";
+  });
+  specTitles2.forEach(function (title) {
+    title.style.backgroundImage = "url('" + secondImage + "')";
+  });
+  specTitles3.forEach(function (title) {
+    title.style.backgroundImage = "url('" + thirdImage + "')";
+  });
+  specTitles4.forEach(function (title) {
+    title.style.backgroundImage = "url('" + fourthImage + "')";
+  });
+  specTitles5.forEach(function (title) {
+    title.style.backgroundImage = "url('" + fifthImage + "')";
+  });
+  specTitles6.forEach(function (title) {
+    title.style.backgroundImage = "url('" + sixthImage + "')";
   });
 }
 
