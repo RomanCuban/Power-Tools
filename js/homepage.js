@@ -15,19 +15,36 @@ var specTitles6 = document.querySelectorAll(".with-image-6"); // Выбирае�
 toolWrappers.forEach(function (toolWrapper) {
   toolWrapper.addEventListener("click", function () {
     var imageUrl = toolWrapper.getAttribute("data-image");
+
     var firstImage = toolWrapper.getAttribute("data-first-image");
     var secondImage = toolWrapper.getAttribute("data-second-image");
     var thirdImage = toolWrapper.getAttribute("data-third-image");
     var fourthImage = toolWrapper.getAttribute("data-fourth-image");
     var fifthImage = toolWrapper.getAttribute("data-fifth-image");
     var sixthImage = toolWrapper.getAttribute("data-sixth-image");
+
     var toolTitle = toolWrapper.querySelector(".text-below").textContent; // Получаем название инструмента
+
     var specTitle = toolWrapper.getAttribute("data-spec-title"); // Получаем название спецификации
     var specTitle2 = toolWrapper.getAttribute("data-spec-title-2"); // Получаем название спецификации
     var specTitle3 = toolWrapper.getAttribute("data-spec-title-3"); // Получаем название спецификации
     var specTitle4 = toolWrapper.getAttribute("data-spec-title-4"); // Получаем название спецификации
     var specTitle5 = toolWrapper.getAttribute("data-spec-title-5"); // Получаем название спецификации
     var specTitle6 = toolWrapper.getAttribute("data-spec-title-6"); // Получаем название спецификации
+
+    var videoSrc = toolWrapper.getAttribute("data-video-src");
+    var paragraphs = [
+      toolWrapper.getAttribute("data-paragraph-1"),
+      toolWrapper.getAttribute("data-paragraph-2"),
+      toolWrapper.getAttribute("data-paragraph-3"),
+    ];
+    var sliderImages = [
+      toolWrapper.getAttribute("data-slider-image-1"),
+      toolWrapper.getAttribute("data-slider-image-2"),
+      toolWrapper.getAttribute("data-slider-image-3"),
+      toolWrapper.getAttribute("data-slider-image-4"),
+    ];
+
     square.style.backgroundImage = "url('" + imageUrl + "')";
     toolTitleElement.textContent = toolTitle; // Устанавливаем название инструмента
     updateSpecs(
@@ -47,9 +64,38 @@ toolWrappers.forEach(function (toolWrapper) {
       fifthImage,
       sixthImage
     );
+
+    // Обновляем содержимое модального окна
+    updateModalContent({
+      videoSrc: videoSrc,
+      paragraphs: paragraphs,
+      sliderImages: sliderImages,
+    });
+
     modal.style.display = "block";
   });
 });
+
+// Функция для обновления содержимого модального окна
+function updateModalContent(toolData) {
+  const infoSquare = document.querySelector(".info-square");
+
+  // Устанавливаем видео
+  const videoElement = infoSquare.querySelector(".video");
+  videoElement.setAttribute("src", toolData.videoSrc);
+
+  // Устанавливаем тексты
+  const paragraphs = infoSquare.querySelectorAll("p");
+  paragraphs.forEach((paragraph, index) => {
+    paragraph.textContent = toolData.paragraphs[index];
+  });
+
+  // Устанавливаем изображения для слайдера
+  const slides = infoSquare.querySelectorAll(".slide");
+  slides.forEach((slide, index) => {
+    slide.setAttribute("src", toolData.sliderImages[index]);
+  });
+}
 
 // Функция для обновления названий спецификаций в модальном окне
 function updateSpecs(
