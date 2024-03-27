@@ -20,7 +20,8 @@
           <img src="/img/logo.png" alt="logo" />
         </div>
         <div class="nav-links">
-          <a href="/html/signin.html"><button>Sign Up</button></a>
+          <!--<a class="nav-sign" href="/html/signin.html">Sign Up</a>-->
+          <button class="user"></button>
         </div>
       </div>
       <div class="header">
@@ -51,6 +52,8 @@
           data-slider-image-2="/img/slider2.jpg"
           data-slider-image-3="/img/slider2.jpg"
           data-slider-image-4="/img/slider2.jpg"
+          data-paragraph-2="hui"
+          data-paragraph-3="hui"
         >
           <div
             class="tool_frame"
@@ -73,6 +76,10 @@
           data-spec-title-4="Chuck"
           data-spec-title-5="Speed"
           data-spec-title-6="Settings"
+          data-slider-image-1="/img/slider1.jpg"
+          data-slider-image-2="/img/slider2.jpg"
+          data-slider-image-3="/img/slider2.jpg"
+          data-slider-image-4="/img/slider2.jpg"
         >
           <div
             class="tool_frame"
@@ -209,7 +216,9 @@
           <div class="slider-container">
             <div class="slider">
               <img alt="Photo 1" class="slide" />
-              <img alt="Photo 1" class="slide" />
+              <img alt="Photo 2" class="slide" />
+              <img alt="Photo 3" class="slide" />
+              <img alt="Photo 4" class="slide" />
             </div>
 
             <button class="prev" onclick="prevSlide()">&#10094;</button>
@@ -231,6 +240,32 @@
       </div>
     </div>
 
+    <div id="userModal" class="user-modal">
+      <div class="user-modal-content">
+        <span class="user-close">&times;</span>
+        <div class="user-profile" id="userProfile">
+          <input
+            type="file"
+            id="imageInput"
+            accept="image/*"
+            style="display: none"
+          />
+          <label for="imageInput" class="image-placeholder">
+            <img
+              id="userImage"
+              src="/path/to/default/image.jpg"
+              alt="Choose your profile image"
+            />
+            <div class="overlay">
+              <button class="change-image">Change Image</button>
+              <button class="delete-image">Delete</button>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/user.js"></script>
     <script src="/js/homepage.js"></script>
   </body>
 </html>
