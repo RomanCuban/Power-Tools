@@ -12,6 +12,41 @@ var userImage = document.getElementById("userImage");
 var overlay = document.querySelector(".overlay");
 var changeImageButton = document.querySelector(".change-image");
 var deleteImageButton = document.querySelector(".delete-image");
+// Находим кнопку "Save" в первой модальной форме
+var saveButton = document.querySelector(".small-square-save");
+
+// Назначаем обработчик события на нажатие кнопки "Save"
+saveButton.addEventListener("click", function () {
+  // Показываем уведомление
+  var notification = document.getElementById("notification");
+  notification.classList.add("show");
+
+  // Закрываем уведомление через 2 секунды (2000 миллисекунд)
+  setTimeout(function () {
+    notification.classList.remove("show");
+  }, 2000);
+
+  // Удаляем элемент с классом "nolist", если он существует
+  var nolistElement = document.querySelector(".nolist");
+  if (nolistElement) {
+    nolistElement.remove();
+  }
+
+  // Находим элемент второй модальной формы
+  var saveLists = document.querySelector(".save-lists");
+
+  // Создаем элемент <div class="save-instruments">hui</div> и добавляем его во вторую модальную форму
+  var newElement = document.createElement("div");
+  newElement.textContent = "hui";
+  newElement.classList.add("save-instruments"); // Добавляем класс стиля
+  saveLists.appendChild(newElement);
+});
+
+// Функция для закрытия уведомления
+function closeNotification() {
+  var notification = document.getElementById("notification");
+  notification.classList.remove("show");
+}
 
 // Show overlay when hovering over the user profile
 document
@@ -38,7 +73,9 @@ imageInput.addEventListener("change", function (event) {
   var reader = new FileReader();
 
   reader.onload = function (e) {
-    userImage.src = e.target.result;
+    var newImageSrc = e.target.result;
+    userImage.src = newImageSrc; // Обновляем изображение в .user-profile
+    userBtn.style.backgroundImage = "url(" + newImageSrc + ")"; // Обновляем фон кнопки .user
   };
 
   reader.readAsDataURL(file);
@@ -47,7 +84,9 @@ imageInput.addEventListener("change", function (event) {
 // Delete image button click event
 deleteImageButton.addEventListener("click", function () {
   // Set the src attribute of the user image to the default image
-  userImage.src = "/path/to/default/image.jpg";
+  var defaultImageSrc = "/path/to/default/image.jpg";
+  userImage.src = defaultImageSrc;
+  userBtn.style.backgroundImage = "url(" + defaultImageSrc + ")"; // Обновляем фон кнопки .user
 });
 
 // When the user clicks on the button, open the modal
